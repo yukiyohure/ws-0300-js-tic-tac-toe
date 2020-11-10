@@ -6,8 +6,46 @@
   <link href="stylesheets/index.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-  <div class="container">
+  <div class="l-container">
     <!-- write your html -->
+    <div class="l-main">
+      <header>
+        <h1 class="upperCase">tic tac toe</h1>
+      </header>
+      <div class="display">
+        <div class="turn l-flex">
+          <div class="turn-item circle is-active">○</div>
+          <div class="turn-item cross">×</div>
+        </div>
+      </div>
+      <div class="l-board">
+        <table class="board">
+          <tr>
+            <td class="board-cell" data-cell='1'></td>
+            <td class="board-cell" data-cell='2'></td>
+            <td class="board-cell" data-cell='3'></td>
+          </tr>
+          <tr>
+            <td class="board-cell" data-cell='4'></td>
+            <td class="board-cell" data-cell='5'></td>
+            <td class="board-cell" data-cell='6'></td>
+          </tr>
+          <tr>
+            <td class="board-cell" data-cell='7'></td>
+            <td class="board-cell" data-cell='8'></td>
+            <td class="board-cell" data-cell='9'></td>
+          </tr>
+        </table>
+      </div>
+      <footer class="l-footer footer">
+        <div class="state-message">
+          starting...
+        </div>
+        <div class="restart">
+          <button class="restart-button upperCase">restart</button>
+        </div>
+      </footer>
+    </div>
   </div>
   <script type="text/javascript" src="js/function.js"></script>
 </body>
