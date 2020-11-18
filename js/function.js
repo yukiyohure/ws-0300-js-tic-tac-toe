@@ -95,7 +95,7 @@ const onClickCell = (e) => {
 
   // turnの切り替え
   states.isCircleTurn = !states.isCircleTurn;
-  swapTurn();
+  toggleTurn();
 };
 
 const checkWin = () => {
@@ -104,26 +104,18 @@ const checkWin = () => {
 
   return winningPattern.some((pattern) => {
     // patternsのうち、一つでもそのpatternの数字の番号のセルに同じマークが揃っていれば勝ち
-    const firstMark = cells[pattern[0]];
-    const secondMark = cells[pattern[1]];
-    const thirdMark = cells[pattern[2]];
+    const [first, second, third] = pattern; // 分割代入
+    const firstMark = cells[first];
+    const secondMark = cells[second];
+    const thirdMark = cells[third];
     // firstMarkの存在を先にチェック
     return firstMark && firstMark === secondMark && firstMark === thirdMark;
   });
 };
 
-const swapTurn = () => {
-  states.isCircleTurn ? activeCircleTurn() : activeCrossTurn();
-};
-
-const activeCircleTurn = () => {
-  elements.cross.classList.remove(states.activeClass);
-  elements.circle.classList.add(states.activeClass);
-};
-
-const activeCrossTurn = () => {
-  elements.circle.classList.remove(states.activeClass);
-  elements.cross.classList.add(states.activeClass);
+const toggleTurn = () => {
+  elements.cross.classList.toggle('is-active');
+  elements.circle.classList.toggle('is-active');
 };
 
 const onclickRestartButton = (e) => {
